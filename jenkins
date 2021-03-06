@@ -2,9 +2,9 @@ pipeline {
 2
     environment { 
 3
-        registry = "YourDockerhubAccount/YourRepository" 
+        registry = "docker/tag" 
 4
-        registryCredential = 'dockerhub_id' 
+        registryCredential = 'kstine13' 
 5
         dockerImage = '' 
 6
@@ -18,7 +18,7 @@ pipeline {
 10
             steps { 
 11
-                git 'https://github.com/YourGithubAccount/YourGithubRepository.git' 
+                git 'https://github.com/kstine13/Project_1' 
 12
             }
 13
