@@ -6,7 +6,7 @@ pipeline {
 4
         registryCredential = 'kstine13' 
 5
-        dockerImage = '' 
+        dockerImage = 'latest' 
 6
     }
 7
