@@ -14,15 +14,6 @@ pipeline {
 
     stages { 
 
-        stage('Cloning our Git') { 
-
-            steps { 
-
-                git 'https://github.com/kstine13/Project_1.git' 
-
-            }
-
-        } 
 
         stage('Building our image') { 
 
