@@ -1,62 +1,45 @@
-pipeline { 
+node {    
 
-    environment { 
+      def app     
 
-        registry = "kstine13/tag" 
+      stage('Clone repository') {               
 
-        registryCredential = 'kstine13' 
+             
 
-        dockerImage = 'latest' 
+            checkout scm    
 
-    }
+      }     
 
-    agent any 
+      stage('Build image') {         
 
-    stages { 
+       
 
+            app = docker.build("kstine13/tag")    
 
-        stage('Building our image') { 
+       }     
 
-            steps { 
+      stage('Test image') {           
 
-                script { 
+            app.inside {            
 
-                    dockerImage = docker.build registry 
+             
 
-                }
+             sh 'echo "Tests passed"'        
 
-            } 
+            }    
+
+        }     
+
+       stage('Push image') {
+
+                                                  docker.withRegistry('https://registry.hub.docker.com', 'git') {            
+
+       app.push("${env.BUILD_NUMBER}")            
+
+       app.push("latest")        
+
+              }    
+
+           }
 
         }
-
-        stage('Deploy our image') { 
-
-            steps { 
-
-                script { 
-
-                    docker.withRegistry( '', registryCredential ) { 
-
-                        dockerImage.push() 
-
-                    }
-
-                } 
-
-            }
-
-        } 
-
-        stage('Cleaning up') { 
-
-            steps { 
-
-                sh "docker rmi $registry:$BUILD_NUMBER" 
-
-            }
-
-        } 
-
-    }
-
-}
