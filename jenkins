@@ -14,7 +14,7 @@ node {
 
        
 
-            app = docker.build("brandonjones085/test")    
+            app = docker.build("kstine13/Project_1")    
 
        }     
 
