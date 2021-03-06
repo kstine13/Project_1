@@ -14,7 +14,7 @@ node {
 
        
 
-            app = docker.build("kstine13/tag")    
+            app = docker.build("/kstine13/tag")    
 
        }     
 
