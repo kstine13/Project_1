@@ -28,17 +28,14 @@ node {
 
             }    
 
-        }     
+        }
+        
+         
 
        stage('Push image') {
-
-                                                  docker.withRegistry('https://registry.hub.docker.com/repository/docker/', 'git') {            
-
-       app.push("${env.BUILD_NUMBER}")            
-
-       app.push("latest")        
-
-              }    
+       docker.withRegistry( '', 'kstine13' ) {
+            dockerImage.push("$BUILD_NUMBER")
+             dockerImage.push('latest')
 
            }
 
