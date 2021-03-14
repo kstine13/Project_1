@@ -14,7 +14,7 @@ node {
 
        
 
-            app = docker.build("kstine13/tag:latest")    
+            app = docker.build("kstine13/newtest:latest")    
 
        }     
 
@@ -32,7 +32,7 @@ node {
 
        stage('Push image') {
 
-                                                  docker.withRegistry('https://registry.hub.docker.com/repository/docker/kstine13/tag', 'git') {            
+                                                  docker.withRegistry('https://registry.hub.docker.com/repository/docker/', 'git') {            
 
        app.push("${env.BUILD_NUMBER}")            
 
