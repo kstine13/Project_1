@@ -29,13 +29,3 @@ node {
             }    
 
         }
-        
-         
-
-       stage('Push image') {
-       docker.withRegistry( '', 'kstine13' ) {
-             dockerImage.push()
-
-           }
-
-        }
