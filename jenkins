@@ -14,7 +14,7 @@ node {
 
        
 
-            app = docker.build("kstine13/newtest:latest")    
+            app = docker.build("kstine13/tag:latest")    
 
        }     
 
@@ -27,5 +27,16 @@ node {
              sh 'echo "Tests passed"'        
 
             }    
+
+        }     
+
+       stage('Push image') {
+
+                                                  docker.withRegistry('https://registry.hub.docker.com/repository/docker/tag', 'git') {            
+       app.push()        
+
+              }    
+
+           }
 
         }
