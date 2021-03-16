@@ -15,10 +15,6 @@ node {
        
 
             app = docker.build("kstine13/tag:latest")
-            docker.withRegistry('https://registry.hub.docker.com', 'kstine13') {            
-            docker.push(app)        
-
-              }
 
        }     
 
@@ -35,11 +31,8 @@ node {
         }     
 
        stage('Push image') {
-
-            docker.withRegistry('https://registry.hub.docker.com', 'kstine13') {            
-            docker.push()        
-
-              }    
+       
+       docker push kstine13/tag:latest  
 
            }
 
