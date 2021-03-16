@@ -16,7 +16,7 @@ node {
 
             app = docker.build("kstine13/tag:latest")
             docker.withRegistry('https://registry.hub.docker.com', 'kstine13') {            
-            app.push()        
+            docker.push(app)        
 
               }
 
