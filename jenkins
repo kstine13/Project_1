@@ -32,7 +32,7 @@ node {
 
        stage('Push image') {
 
-            docker.withRegistry('', 'kstine13') {            
+            docker.withRegistry('https://registry.hub.docker.com', 'kstine13') {            
             docker.push()        
 
               }    
