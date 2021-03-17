@@ -14,7 +14,7 @@ node {
 
        
 
-            app = docker.build("kstine13/tag:latest")
+            app = docker.build("kstine13/tag:latest")    
 
        }     
 
@@ -31,10 +31,11 @@ node {
         }     
 
        stage('Push image') {
-            docker.withRegistry('', 'kstine13') {            
-            app.push()        
 
-              } 
+            docker.withRegistry('https://registry.hub.docker.com', 'kstine13') {            
+            docker.push()        
+
+              }    
 
            }
 
