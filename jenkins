@@ -15,6 +15,7 @@ node {
        
 
             app = docker.build("kstine13/tag:latest")    
+            docker.push(app)
 
        }     
 
