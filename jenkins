@@ -11,10 +11,10 @@ node {
       }     
 
       stage('Build image') {         
-
+            
        
 
-            app = docker.build("kstine13/tag:latest")    
+            app = docker.build 'kstine13/tag' + ":$BUILD_NUMBER" 
 
        }     
 
@@ -32,7 +32,7 @@ node {
 
        stage('Push image') {
        
-          docker.withRegistry( '', docker ) {
+          docker.withRegistry( '', 'docker' ) {
 
             app.push()  
             }
