@@ -31,8 +31,10 @@ node {
         }     
 
        stage('Push image') {
-       
-       docker push kstine13/tag:latest  
+            docker.withRegistry('', 'kstine13') {            
+            app.push()        
+
+              } 
 
            }
 
